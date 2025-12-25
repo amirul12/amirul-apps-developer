@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, Mail, Linkedin, Github, MapPin, Phone, Send } from "lucide-react";
+import { ArrowLeft, Mail, Linkedin as LinkedinIcon, Github as GithubIcon, MapPin, Phone, Send } from "lucide-react";
 import { profile } from "@/data/profile";
 
 export default function ContactPage() {
@@ -52,7 +52,7 @@ export default function ContactPage() {
           >
             <div className="flex items-center gap-4 mb-4">
               <div className="p-4 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl group-hover:scale-110 transition-transform">
-                <Linkedin className="w-8 h-8 text-white" />
+                <LinkedinIcon className="w-8 h-8 text-white" />
               </div>
               <div>
                 <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">
@@ -76,7 +76,7 @@ export default function ContactPage() {
           >
             <div className="flex items-center gap-4 mb-4">
               <div className="p-4 bg-gradient-to-br from-slate-700 to-slate-900 rounded-xl group-hover:scale-110 transition-transform">
-                <Github className="w-8 h-8 text-white" />
+                <GithubIcon className="w-8 h-8 text-white" />
               </div>
               <div>
                 <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">

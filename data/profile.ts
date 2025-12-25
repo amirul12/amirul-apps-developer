@@ -1,12 +1,14 @@
 export const profile = {
   name: "Md Amirul Islam",
-  role: "Senior Software Engineer (Flutter & Android)",
-  summary: `Senior Software Engineer with 6+ years in mobile application development and 4+ years specializing in Flutter & cross-platform development. Strong background in fintech and digital banking applications with experience leading teams of 4-5 developers. Successfully published 5+ apps on Google Play Store and Apple App Store.`,
+  role: "Senior Flutter Developer – Fintech & Digital Banking",
+  summary: `Senior Flutter Developer with 4+ years of Flutter and 6+ years of mobile development experience, specializing in secure digital banking and Fintech applications used by hundreds of thousands of real users. Proven track record of delivering production-grade mobile banking apps for leading financial institutions, with strong focus on security, scalability, performance, and regulatory compliance.
+
+  Extensive experience designing and developing cross-platform mobile banking solutions including digital wallets, account management, transaction history, fund transfers, authentication, and secure API integrations. Expert in clean architecture, BLoC/Cubit state management, dependency injection, and end-to-end mobile app lifecycle, from requirement analysis to App Store & Play Store deployment.`,
   email: "amirulislam.cste@gmail.com",
   phone: "+880 167 567 9042",
   location: "Dhaka, Bangladesh",
   linkedin: "https://linkedin.com/in/md-amirul-islam",
   github: "https://github.com/amirulislam",
   portfolio: "https://amirul-islam.vercel.app",
-  avatar: "/avatar.jpg",
+  avatar: "/avatar.png",
 };

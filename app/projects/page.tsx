@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, Github, Play } from "lucide-react";
+import { ArrowLeft, Smartphone, Store } from "lucide-react";
 import { projects } from "@/data/projects";
 
 export default function ProjectsPage() {
@@ -14,12 +14,17 @@ export default function ProjectsPage() {
           Back to Home
         </Link>
 
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
-          Featured Projects
-        </h1>
-        <p className="text-lg text-slate-600 dark:text-slate-400 mb-12">
-          Real-world fintech and banking applications delivered to production
-        </p>
+        <div className="mb-12">
+          <div className="flex items-center gap-3 mb-4">
+            <Smartphone className="w-10 h-10 text-blue-600 dark:text-blue-400" />
+            <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+              Banking Apps
+            </h1>
+          </div>
+          <p className="text-lg text-slate-600 dark:text-slate-400">
+            Real-world fintech applications delivered to production and available on both stores
+          </p>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
@@ -28,14 +33,21 @@ export default function ProjectsPage() {
               className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
             >
               <div className="mb-6">
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2">
-                  {project.title}
-                </h2>
-                <p className="text-sm text-purple-600 dark:text-purple-400 font-medium">
-                  {project.role} | {project.duration}
-                </p>
-                <p className="text-xs text-slate-500 dark:text-slate-500 mt-1">
+                <div className="flex items-start justify-between mb-3">
+                  <div>
+                    <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-1">
+                      {project.title}
+                    </h2>
+                    <p className="text-sm text-purple-600 dark:text-purple-400 font-medium">
+                      {project.subtitle}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-xs text-slate-500 dark:text-slate-500 mb-2">
                   {project.company}
+                </p>
+                <p className="text-sm text-slate-600 dark:text-slate-400">
+                  {project.role} | {project.duration}
                 </p>
               </div>
 
@@ -76,34 +88,32 @@ export default function ProjectsPage() {
                 </div>
               </div>
 
-              {project.links && (
-                <div className="flex gap-3 pt-4 border-t border-slate-200 dark:border-slate-700">
-                  {project.links.playStore && (
-                    <a
-                      href={project.links.playStore}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg text-sm font-medium hover:shadow-lg transition-shadow"
-                    >
-                      <Play className="w-4 h-4" />
-                      Play Store
-                    </a>
-                  )}
-                  {project.links.appStore && (
-                    <a
-                      href={project.links.appStore}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-slate-900 dark:bg-slate-700 text-white rounded-lg text-sm font-medium hover:shadow-lg transition-shadow"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      App Store
-                    </a>
-                  )}
+              <div className="flex gap-3 pt-4 border-t border-slate-200 dark:border-slate-700">
+                <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg text-sm font-medium">
+                  <Store className="w-4 h-4" />
+                  Available on Both Stores
                 </div>
-              )}
+              </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl shadow-xl p-8 md:p-12 text-white">
+          <h2 className="text-2xl font-bold mb-4">All Projects Live on App Stores</h2>
+          <p className="text-blue-100 mb-6">
+            All four banking applications are successfully deployed and available on both Google Play Store and Apple App Store,
+            serving thousands of users with secure and reliable banking services.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <div className="flex items-center gap-2 bg-white/20 px-4 py-2 rounded-lg">
+              <Smartphone className="w-5 h-5" />
+              <span className="font-medium">Google Play Store</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/20 px-4 py-2 rounded-lg">
+              <Store className="w-5 h-5" />
+              <span className="font-medium">Apple App Store</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

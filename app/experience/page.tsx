@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, Building, Calendar, MapPin } from "lucide-react";
+import { ArrowLeft, Building, Calendar, MapPin, ExternalLink } from "lucide-react";
 import { experience } from "@/data/experience";
 
 export default function ExperiencePage() {
@@ -31,10 +31,26 @@ export default function ExperiencePage() {
                     <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
                       {exp.company}
                     </h2>
+                    {exp.website && (
+                      <a
+                        href={exp.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                        aria-label="Company website"
+                      >
+                        <ExternalLink className="w-5 h-5" />
+                      </a>
+                    )}
                   </div>
                   <p className="text-xl text-purple-600 dark:text-purple-400 font-semibold mb-2">
                     {exp.role}
                   </p>
+                  {exp.department && (
+                    <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">
+                      {exp.department}
+                    </p>
+                  )}
                   <div className="flex flex-wrap gap-4 text-sm text-slate-600 dark:text-slate-400">
                     <span className="flex items-center gap-2">
                       <Calendar className="w-4 h-4" />

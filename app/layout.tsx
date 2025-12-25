@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Md Amirul Islam | Senior Flutter & Fintech Engineer",
+  title: "Md Amirul Islam | Senior Flutter Developer – Fintech & Digital Banking",
   description:
-    "Senior Software Engineer with 6+ years in mobile application development and 4+ years specializing in Flutter & cross-platform development. Strong background in fintech and digital banking applications.",
+    "Senior Flutter Developer with 4+ years of Flutter and 6+ years of mobile development experience, specializing in secure digital banking and Fintech applications used by hundreds of thousands of real users.",
 };
 
 export default function RootLayout({
