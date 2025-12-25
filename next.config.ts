@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+   basePath: '/resume-site',  // Add this
 };
 
 export default nextConfig;
