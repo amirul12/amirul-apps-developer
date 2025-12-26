@@ -1,12 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  output: "export",
+
+  basePath: "/amirul-apps-developer",
+  assetPrefix: "/amirul-apps-developer/",
+
   images: {
     unoptimized: true,
   },
-  basePath: '',
-  assetPrefix: '',
 };
 
 export default nextConfig;
