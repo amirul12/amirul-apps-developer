@@ -48,12 +48,11 @@ export const projects = [
     title: "UniON",
     subtitle: "Union Bank Limited",
     description:
-      "Comprehensive digital banking platform offering loan management, account services, and financial transactions with a modern mobile experience.",
+      "Comprehensive digital banking platform offering account services, and financial transactions with a modern mobile experience.",
     role: "Flutter Developer",
     duration: "2022 – 2023",
     tech: ["Flutter", "Dart", "BLoC", "REST API", "Payment Gateway"],
     features: [
-      "Loan application and management",
       "Account overview and transactions",
       "Secure payment processing",
       "Document upload and verification",

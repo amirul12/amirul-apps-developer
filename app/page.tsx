@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Mail, Linkedin as LinkedinIcon, Github as GithubIcon, MapPin, Phone, ExternalLink, Building, Calendar, Award, Shield, Code, Wrench, Briefcase, Menu, X, User, Trophy } from "lucide-react";
+import { Mail, Linkedin as LinkedinIcon, Github as GithubIcon, MapPin, Phone, ExternalLink, Building, Award, Shield, Code, Wrench, Briefcase, Menu, X, User, Trophy, Building2, GraduationCap, Award as Certificate, Youtube } from "lucide-react";
 import { profile } from "@/data/profile";
 import { experience as experienceData } from "@/data/experience";
 import { projects as projectsData } from "@/data/projects";
 import { skills as skillsData } from "@/data/skills";
+import { education as educationData } from "@/data/education";
+import { certifications as certificationsData } from "@/data/certifications";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,6 +27,8 @@ export default function Home() {
     { name: 'About', href: '#about' },
     { name: 'Achievements', href: '#achievements' },
     { name: 'Experience', href: '#experience' },
+    { name: 'Education', href: '#education' },
+    { name: 'Certifications', href: '#certifications' },
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' },
     { name: 'Contact', href: '#contact' },
@@ -139,6 +143,17 @@ export default function Home() {
                     <ExternalLink className="w-5 h-5" />
                     Download CV
                   </a>
+                  {profile.youtube && (
+                    <a
+                      href={profile.youtube}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white rounded-full font-semibold hover:bg-red-700 hover:scale-105 transition-all duration-300 shadow-lg"
+                    >
+                      <Youtube className="w-5 h-5" />
+                      Watch Video
+                    </a>
+                  )}
                 </div>
 
                 {/* Contact Info */}
@@ -266,105 +281,359 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Experience Section */}
+        {/* Professional Journey Section */}
         <section id="experience" className="py-20">
           <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Briefcase className="w-12 h-12 text-primary dark:text-primary" />
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100">
-                Experience
-              </h2>
-            </div>
-            <p className="text-xl text-slate-600 dark:text-slate-400">My professional journey</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
+              Professional Journey
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400">
+              A timeline of my professional growth and the impactful projects I've contributed to.
+            </p>
           </div>
 
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500 to-primary rounded-full"></div>
+          {/* Timeline Container */}
+          <div className="relative max-w-6xl mx-auto">
+            {/* Vertical Timeline Line */}
+            <div className="absolute left-0 md:left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo-500 to-purple-500 rounded-full" />
 
-            {experienceData.map((exp, index) => (
-              <div key={index} className={`mb-12 flex flex-col md:flex-row items-start gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                {/* Timeline dot */}
-                <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-blue-500 to-primary rounded-full border-4 border-white dark:border-slate-900 shadow-lg z-10"></div>
+            {/* Experience Cards */}
+            <div className="space-y-8">
+              {experienceData.map((exp, index) => (
+                <div
+                  key={index}
+                  className="relative pl-8 md:pl-20"
+                >
+                  {/* Timeline Node */}
+                  <div className="absolute left-0 md:left-[30px] top-6 w-4 h-4 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full border-4 border-white dark:border-slate-900 shadow-lg" />
 
-                {/* Content */}
-                <div className="ml-8 md:ml-0 md:w-1/2">
-                  <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300">
-                    <div className="flex items-center gap-3 mb-4">
-                      <Building className="w-6 h-6 text-primary dark:text-primary" />
-                      <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
-                        {exp.company}
-                      </h3>
-                      {exp.website && (
-                        <a
-                          href={exp.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-slate-400 hover:text-primary dark:hover:text-blue-400 transition-colors"
-                        >
-                          <ExternalLink className="w-5 h-5" />
-                        </a>
-                      )}
-                    </div>
-                    <p className="text-xl text-primary dark:text-primary font-semibold mb-2">
-                      {exp.role}
-                    </p>
-                    {exp.department && (
-                      <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">
-                        {exp.department}
-                      </p>
-                    )}
-                    <div className="flex flex-wrap gap-4 text-sm text-slate-600 dark:text-slate-400 mb-4">
-                      <span className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4" />
-                        {exp.period}
-                      </span>
-                      <span className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4" />
-                        {exp.location}
-                      </span>
-                    </div>
+                  {/* Card */}
+                  <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 md:p-8">
+                    <div className="flex flex-col lg:flex-row lg:gap-8">
+                      {/* Left Column - Metadata */}
+                      <div className="lg:w-1/3 flex flex-col gap-3 mb-6 lg:mb-0">
+                        {/* Date Badge */}
+                        <span className="inline-flex items-center w-fit px-4 py-1.5 bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-semibold">
+                          {exp.period}
+                        </span>
 
-                    <p className="text-slate-700 dark:text-slate-300 mb-4 leading-relaxed">
-                      {exp.description}
-                    </p>
+                        {/* Job Title */}
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+                          {exp.role}
+                        </h3>
 
-                    <div className="mb-4">
-                      <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-2 uppercase tracking-wide">
-                        Key Achievements:
-                      </h4>
-                      <ul className="space-y-1">
-                        {exp.achievements.map((achievement, i) => (
-                          <li
-                            key={i}
-                            className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300"
-                          >
-                            <span className="w-1.5 h-1.5 bg-primary dark:bg-primary rounded-full mt-1.5 flex-shrink-0" />
-                            <span>{achievement}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-2 uppercase tracking-wide">
-                        Technologies:
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {exp.tech.map((tech, i) => (
-                          <span
-                            key={i}
-                            className="px-3 py-1 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 text-blue-700 dark:text-blue-300 rounded-full text-xs font-medium"
-                          >
-                            {tech}
+                        {/* Company */}
+                        <div className="flex items-center gap-2">
+                          <Building2 className="w-5 h-5 text-purple-600 dark:text-purple-400 flex-shrink-0" />
+                          <span className="text-slate-700 dark:text-slate-300 font-medium">
+                            {exp.company}
                           </span>
-                        ))}
+                          {exp.website && (
+                            <a
+                              href={exp.website}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-slate-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                            >
+                              <ExternalLink className="w-4 h-4" />
+                            </a>
+                          )}
+                        </div>
+
+                        {/* Location */}
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-4 h-4 text-slate-500 dark:text-slate-500 flex-shrink-0" />
+                          <span className="text-slate-600 dark:text-slate-400">
+                            {exp.location}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Right Column - Content */}
+                      <div className="lg:w-2/3 flex flex-col gap-4">
+                        {/* Description */}
+                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                          {exp.description}
+                        </p>
+
+                        {/* Key Achievements */}
+                        <div>
+                          <h4 className="text-base font-semibold text-slate-900 dark:text-slate-100 mb-2">
+                            Key Achievements:
+                          </h4>
+                          <ul className="space-y-2">
+                            {exp.achievements.slice(0, 4).map((achievement, i) => (
+                              <li
+                                key={i}
+                                className="flex items-start gap-2 text-slate-700 dark:text-slate-300 text-sm"
+                              >
+                                <span className="w-1.5 h-1.5 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full mt-2 flex-shrink-0" />
+                                <span>{achievement}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Technologies */}
+                        <div>
+                          <h4 className="text-base font-semibold text-slate-900 dark:text-slate-100 mb-2">
+                            Technologies:
+                          </h4>
+                          <div className="flex flex-wrap gap-2">
+                            {exp.tech.map((tech, i) => (
+                              <span
+                                key={i}
+                                className="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors cursor-default"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Academic Qualification Section */}
+        <section id="education" className="py-20">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
+              Academic Qualification
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400">
+              My educational background and academic achievements
+            </p>
+          </div>
+
+          {/* Timeline Container */}
+          <div className="relative max-w-6xl mx-auto">
+            {/* Vertical Timeline Line */}
+            <div className="absolute left-0 md:left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo-500 to-purple-500 rounded-full" />
+
+            {/* Education Cards */}
+            <div className="space-y-8">
+              {educationData.map((edu, index) => (
+                <div
+                  key={index}
+                  className="relative pl-8 md:pl-20"
+                >
+                  {/* Timeline Node */}
+                  <div className="absolute left-0 md:left-[30px] top-6 w-4 h-4 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full border-4 border-white dark:border-slate-900 shadow-lg" />
+
+                  {/* Card */}
+                  <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 md:p-8">
+                    <div className="flex flex-col lg:flex-row lg:gap-8">
+                      {/* Left Column - Metadata */}
+                      <div className="lg:w-1/3 flex flex-col gap-3 mb-6 lg:mb-0">
+                        {/* Year/Period Badge */}
+                        <span className="inline-flex items-center w-fit px-4 py-1.5 bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-semibold">
+                          {edu.period}
+                        </span>
+
+                        {/* Degree */}
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+                          {edu.level}
+                        </h3>
+
+                        {/* Institution */}
+                        <div className="flex items-center gap-2">
+                          <GraduationCap className="w-5 h-5 text-purple-600 dark:text-purple-400 flex-shrink-0" />
+                          <span className="text-slate-700 dark:text-slate-300 font-medium">
+                            {edu.institution}
+                          </span>
+                          {edu.website && (
+                            <a
+                              href={edu.website}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-slate-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                            >
+                              <ExternalLink className="w-4 h-4" />
+                            </a>
+                          )}
+                        </div>
+
+                        {/* Location */}
+                        {edu.location && (
+                          <div className="flex items-center gap-2">
+                            <MapPin className="w-4 h-4 text-slate-500 dark:text-slate-500 flex-shrink-0" />
+                            <span className="text-slate-600 dark:text-slate-400">
+                              {edu.location}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Right Column - Content */}
+                      <div className="lg:w-2/3 flex flex-col gap-4">
+                        {/* Description */}
+                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                          {edu.description}
+                        </p>
+
+                        {/* Degree Details */}
+                        <div>
+                          <h4 className="text-base font-semibold text-slate-900 dark:text-slate-100 mb-2">
+                            Degree Details:
+                          </h4>
+                          <ul className="space-y-2">
+                            <li className="flex items-start gap-2 text-slate-700 dark:text-slate-300 text-sm">
+                              <span className="w-1.5 h-1.5 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full mt-2 flex-shrink-0" />
+                              <span><strong>Program:</strong> {edu.degree}</span>
+                            </li>
+                            {edu.field && (
+                              <li className="flex items-start gap-2 text-slate-700 dark:text-slate-300 text-sm">
+                                <span className="w-1.5 h-1.5 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full mt-2 flex-shrink-0" />
+                                <span><strong>Field:</strong> {edu.field}</span>
+                              </li>
+                            )}
+                          </ul>
+                        </div>
+
+                        {/* Achievements (if available) */}
+                        {edu.achievements && (
+                          <div>
+                            <h4 className="text-base font-semibold text-slate-900 dark:text-slate-100 mb-2">
+                              Key Achievements:
+                            </h4>
+                            <ul className="space-y-2">
+                              {edu.achievements.map((achievement, i) => (
+                                <li
+                                  key={i}
+                                  className="flex items-start gap-2 text-slate-700 dark:text-slate-300 text-sm"
+                                >
+                                  <span className="w-1.5 h-1.5 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full mt-2 flex-shrink-0" />
+                                  <span>{achievement}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Certifications & Training Section */}
+        <section id="certifications" className="py-20">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
+              Certifications & Training
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400">
+              Professional certifications, competitions, and training programs
+            </p>
+          </div>
+
+          {/* Timeline Container */}
+          <div className="relative max-w-6xl mx-auto">
+            {/* Vertical Timeline Line */}
+            <div className="absolute left-0 md:left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo-500 to-purple-500 rounded-full" />
+
+            {/* Certification Cards */}
+            <div className="space-y-8">
+              {certificationsData.map((cert, index) => (
+                <div
+                  key={index}
+                  className="relative pl-8 md:pl-20"
+                >
+                  {/* Timeline Node */}
+                  <div className="absolute left-0 md:left-[30px] top-6 w-4 h-4 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full border-4 border-white dark:border-slate-900 shadow-lg" />
+
+                  {/* Card */}
+                  <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 md:p-8">
+                    <div className="flex flex-col lg:flex-row lg:gap-8">
+                      {/* Left Column - Metadata */}
+                      <div className="lg:w-1/3 flex flex-col gap-3 mb-6 lg:mb-0">
+                        {/* Year Badge */}
+                        <span className="inline-flex items-center w-fit px-4 py-1.5 bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-semibold">
+                          {cert.year}
+                        </span>
+
+                        {/* Title */}
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+                          {cert.title}
+                        </h3>
+
+                        {/* Organization */}
+                        <div className="flex items-center gap-2">
+                          <Certificate className="w-5 h-5 text-purple-600 dark:text-purple-400 flex-shrink-0" />
+                          <span className="text-slate-700 dark:text-slate-300 font-medium">
+                            {cert.organization}
+                          </span>
+                        </div>
+
+                        {/* Type */}
+                        {cert.type && (
+                          <div className="flex items-center gap-2">
+                            <Award className="w-4 h-4 text-slate-500 dark:text-slate-500 flex-shrink-0" />
+                            <span className="text-slate-600 dark:text-slate-400">
+                              {cert.type}
+                            </span>
+                          </div>
+                        )}
+
+                        {/* Position/Achievement Badge */}
+                        {cert.position && (
+                          <div className="inline-flex items-center w-fit px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-full text-xs font-semibold">
+                            🏆 {cert.position}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Right Column - Content */}
+                      <div className="lg:w-2/3 flex flex-col gap-4">
+                        {/* Description */}
+                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                          {cert.description}
+                        </p>
+
+                        {/* Period/Duration */}
+                        {cert.period && (
+                          <div>
+                            <h4 className="text-base font-semibold text-slate-900 dark:text-slate-100 mb-2">
+                              Duration:
+                            </h4>
+                            <p className="text-slate-700 dark:text-slate-300 text-sm">
+                              {cert.period}
+                            </p>
+                          </div>
+                        )}
+
+                        {/* Key Achievements */}
+                        {cert.achievements && cert.achievements.length > 0 && (
+                          <div>
+                            <h4 className="text-base font-semibold text-slate-900 dark:text-slate-100 mb-2">
+                              Key Highlights:
+                            </h4>
+                            <ul className="space-y-2">
+                              {cert.achievements.map((achievement, i) => (
+                                <li
+                                  key={i}
+                                  className="flex items-start gap-2 text-slate-700 dark:text-slate-300 text-sm"
+                                >
+                                  <span className="w-1.5 h-1.5 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full mt-2 flex-shrink-0" />
+                                  <span>{achievement}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
