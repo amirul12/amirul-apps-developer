@@ -1,3 +1,3 @@
-:HL["/_next/static/chunks/078ec62f7533f5b1.css","style"]
-:HL["/_next/static/media/ce62453a442c7f35-s.p.a9507876.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"buildId":"LVdznhU3LFkZY6H7x_T0n","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"projects","paramType":null,"paramKey":"projects","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+:HL["/amirul-apps-developer/_next/static/chunks/078ec62f7533f5b1.css","style"]
+:HL["/amirul-apps-developer/_next/static/media/ce62453a442c7f35-s.p.a9507876.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"buildId":"szaIuGdb1h4Xh5ym4S_r8","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"projects","paramType":null,"paramKey":"projects","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
