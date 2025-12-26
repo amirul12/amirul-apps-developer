@@ -1,4 +1,3 @@
-:HL["/amirul-apps-developer/_next/static/chunks/449b6dbe8c7c488d.css","style"]
-:HL["/amirul-apps-developer/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/amirul-apps-developer/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"buildId":"UvrsRvkpCOszUXZkYM-Va","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"contact","paramType":null,"paramKey":"contact","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+:HL["/_next/static/chunks/526766f3a73df4ca.css","style"]
+:HL["/_next/static/media/ce62453a442c7f35-s.p.a9507876.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"buildId":"9A2Qgqtp1QlpZ6jThKy-v","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"contact","paramType":null,"paramKey":"contact","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
