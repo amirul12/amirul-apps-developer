@@ -1,5 +1,5 @@
 {
-  "name": "resume-site",
+  "name": "amirul-apps-developer",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "export": "next build",
-    "deploy": "gh-pages -d out -b gh-pages"
+    "export": "NODE_ENV=production next build",
+    "deploy": "NODE_ENV=production npm run build && gh-pages -d out -b gh-pages"
   },
   "dependencies": {
     "framer-motion": "^12.23.26",

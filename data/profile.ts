@@ -5,7 +5,7 @@ export const profile = {
 
   Extensive experience designing and developing cross-platform mobile banking solutions including digital wallets, account management, transaction history, fund transfers, authentication, and secure API integrations. Expert in clean architecture, BLoC/Cubit state management, dependency injection, and end-to-end mobile app lifecycle, from requirement analysis to App Store & Play Store deployment.`,
   email: "amirulislam.cste@gmail.com",
-  phone: "+880 167 567 9042",
+  phone: "+880 1722835935",
   location: "Dhaka, Bangladesh",
   linkedin: "https://linkedin.com/in/md-amirul-islam",
   github: "https://github.com/amirulislam",
